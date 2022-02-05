@@ -1,6 +1,6 @@
 body {
   background: black;
-  margin: 0;
+  /* margin: 0; */
 }
 
 .line {
@@ -27,5 +27,4 @@ body {
   color: white;
   position: absolute;
   font-size: 38px;
-  margin: 20px;
 }

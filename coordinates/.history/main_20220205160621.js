@@ -18,5 +18,6 @@ addEventListener('load', () => {
         target.style.transform = `translate(${x - targetHalfWidth}px, ${y - targetHalfHeight}px)`;
         tag.style.transform = `translate(${x}px, ${y}px)`;
         tag.innerHTML = `${x}px, ${y}px`;
+        // tag.style.transform = `translate(${x}px, ${y + 20}px)`;
     })
 })
