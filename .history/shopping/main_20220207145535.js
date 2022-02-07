@@ -1,12 +1,6 @@
 const items = document.querySelector('.items');
-const form = document.querySelector('.new-form');
 const input = document.querySelector('.footer__input');
 const addBtn = document.querySelector('.footer__button');
-
-form.addEventListener('submit', event => {
-    event.preventDefault();
-    onAdd();
-})
 
 function onAdd() {
     // 1. 사용자가 입력한 텍스트를 받아옴.
@@ -31,12 +25,12 @@ let id = 0; // UUID
 function createItem(text) {
     const itemRow = document.createElement('li');
     itemRow.setAttribute('class', 'item__row');
-    itemRow.setAttribute('data-id', id);
-    itemRow.innerHTML = `
-        <div class="item">
+        itemRow.innerHTML = `
+
+        <div class="item data-id=${id}">
             <span class="item__name">${text}</span>
-            <button class="item__delete">
-                <i class="fas fa-trash-alt" data-id=${id}></i>
+            <button class="item__delete" data-id=${id}>
+                <i class="fas fa-trash-alt"></i>
             </button>
         </div>
         <div class="item__divider"></div>
@@ -44,12 +38,19 @@ function createItem(text) {
         id++;
     return itemRow;
 }
+addBtn.addEventListener('click', () => {
+    onAdd();
+})
+
+input.addEventListener('keypress', event => {
+    if(event.key === 'Enter') {
+        onAdd();
+    }
+})
 
 items.addEventListener('click', event => {
-    const id = event.target.dataset.id;
-    if(id) {
-        const toBeDeleted = document.querySelector(`.item__row[data-id="${id}"]`);
-        toBeDeleted.remove();
+    if(event.target.dataset.id) {
+        console.log('he');
     }
 
-});
+})
